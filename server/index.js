@@ -11,7 +11,6 @@ import { connectToDB } from './db/db.js';
 import { decrypt, encrypt } from './EncryptionHandler.js';
 import { hashPassword, comparePassword } from './helper/auth.helper.js';
 import verifyJWT from './middleware/auth.middleware.js';
-const PORT = 5000;
 const app = express();
 
 const db = connectToDB();
@@ -238,8 +237,8 @@ app.delete('/deletepassword/:id', (req, res) => {
 
 
 
-app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
+app.listen(process.env.PORT, () => {
+    console.log(`Server is running on http://localhost:${process.env.PORT}`);
 });
 
 
